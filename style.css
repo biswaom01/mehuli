@@ -1,0 +1,516 @@
+body {
+    background: linear-gradient(
+        135deg,
+        #eee5ff,
+        #fce8f1,
+        #e9e5ff,
+        #fff0f5
+    );
+
+    color: #51436d;
+    font-family: Georgia, serif;
+    text-align: center;
+
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 80px;
+
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* SOFT DREAMY CLOUD GLOW */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #ffffffa8,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            #f7cce6a0,
+            transparent 35%
+        );
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* TINY BACKGROUND STARS */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1.5px),
+        radial-gradient(#ffffff 1px, transparent 1.5px);
+
+    background-size: 65px 65px, 100px 100px;
+    background-position: 0 0, 30px 40px;
+
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+
+    animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+/* KEEP WEBSITE CONTENT ABOVE THE BACKGROUND */
+
+body > :not(script) {
+    position: relative;
+    z-index: 1;
+}
+
+/* MAIN HEADING */
+
+h1 {
+    color: #8065a8;
+    font-size: 55px;
+}
+
+/* INTRODUCTION TEXT */
+
+p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* CRESCENT MOON */
+
+.moon {
+    font-size: 85px;
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px #ffffff,
+        0 0 25px #b99be9,
+        0 0 40px #d7b9f3;
+
+    margin-bottom: 15px;
+
+    animation: moonGlow 3s ease-in-out infinite alternate;
+}
+
+/* MOON ANIMATION */
+
+@keyframes moonGlow {
+    from {
+        transform: translateY(0);
+        text-shadow: 0 0 10px #ffffff;
+    }
+
+    to {
+        transform: translateY(-8px);
+        text-shadow: 0 0 30px #c4a6ed;
+    }
+}
+
+/* STAR ANIMATION */
+
+@keyframes twinkle {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 0.9;
+    }
+}
+
+.message-card {
+    width: 70%;
+    max-width: 650px;
+
+    margin: 35px auto;
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 8px 30px rgba(130, 100, 170, 0.12);
+}
+
+/* MESSAGE INSIDE THE CARD */
+
+.message-card p {
+    font-size: 19px;
+    line-height: 1.8;
+    color: #66547f;
+    margin: 0;
+}
+
+/* EXPLORE BUTTON */
+
+.explore {
+    margin-top: 35px;
+}
+
+.explore button {
+    background: linear-gradient(
+        120deg,
+        #b69add,
+        #e6b5d2
+    );
+
+    color: white;
+    border: 1px solid #ffffff;
+
+    padding: 15px 32px;
+
+    border-radius: 40px;
+
+    font-size: 16px;
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 20px rgba(130, 100, 170, 0.2);
+
+    transition: 0.3s;
+}
+
+.explore button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(130, 100, 170, 0.3);
+}
+
+/* NEXT SECTION */
+
+.next-section {
+    display: none;
+
+    width: 70%;
+    max-width: 650px;
+
+    margin: 50px auto;
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    border: 1px solid white;
+    border-radius: 25px;
+
+    box-shadow: 0 8px 30px rgba(130, 100, 170, 0.12);
+}
+
+/* SHOW THE SECTION */
+
+.next-section.show {
+    display: block;
+    animation: appear 1s ease;
+}
+
+/* SECTION HEADING */
+
+.next-section h2 {
+    color: #8065a8;
+    font-size: 30px;
+}
+
+/* SECTION PARAGRAPH */
+
+.next-section p {
+    color: #66547f;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* LOVE LETTER AREA */
+
+.letter-area {
+    margin: 45px auto;
+    text-align: center;
+}
+
+/* LETTER HEADING */
+
+.letter-area h3 {
+    color: #8065a8;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* ENVELOPE BUTTON */
+
+.envelope {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid white;
+    border-radius: 20px;
+
+    padding: 22px 35px;
+
+    font-size: 45px;
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(130, 100, 170, 0.15);
+
+    transition: 0.3s;
+}
+
+.envelope span {
+    display: block;
+    font-size: 15px;
+    color: #8065a8;
+    margin-top: 10px;
+    font-family: Georgia, serif;
+}
+
+.envelope:hover {
+    transform: translateY(-6px) scale(1.04);
+}
+
+/* LOVE LETTER */
+
+.love-letter {
+    display: none;
+
+    width: 75%;
+    max-width: 550px;
+
+    box-sizing: border-box;
+    margin: 35px auto;
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid white;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 35px rgba(130, 100, 170, 0.15);
+
+    text-align: left;
+}
+
+/* SHOW LETTER */
+
+.love-letter.show {
+    display: block;
+    animation: appear 1s ease;
+}
+
+.love-letter h2 {
+    text-align: center;
+    color: #8065a8;
+}
+
+.love-letter p {
+    color: #66547f;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.letter-signature {
+    text-align: right;
+    font-style: italic;
+}
+
+/* PHOTO GALLERY */
+
+.gallery-section {
+    margin: 65px auto;
+    width: 90%;
+    max-width: 950px;
+    text-align: center;
+}
+
+.gallery-section h2 {
+    color: #8065a8;
+    font-size: 32px;
+}
+
+.gallery-intro {
+    color: #66547f;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.photo-card {
+    background: rgba(255, 255, 255, 0.65);
+    padding: 12px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(130, 100, 170, 0.12);
+    transition: transform 0.3s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-7px) rotate(-1deg);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.photo-card p {
+    color: #8065a8;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* MOBILE GALLERY */
+
+@media (max-width: 650px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card img {
+        height: 260px;
+    }
+}
+
+/* FLOATING HEARTS */
+
+#hearts-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -30px;
+    color: #ed91bb;
+    font-size: 25px;
+    animation: heartFloat 3s ease-out forwards;
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-90vh) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* FINAL SURPRISE */
+
+.surprise-area {
+    margin: 70px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+.surprise-area h2 {
+    color: #8065a8;
+    font-size: 30px;
+}
+
+.surprise-area p {
+    color: #66547f;
+    font-size: 18px;
+}
+
+/* SURPRISE BUTTON */
+
+.surprise-button {
+    padding: 16px 32px;
+    border: 1px solid white;
+    border-radius: 40px;
+
+    background: linear-gradient(
+        120deg,
+        #b69add,
+        #e6b5d2
+    );
+
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 17px;
+
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(130, 100, 170, 0.2);
+}
+
+.surprise-button:hover {
+    transform: scale(1.06);
+}
+
+/* HIDDEN SURPRISE MESSAGE */
+
+.surprise-message {
+    display: none;
+
+    max-width: 600px;
+    margin: 35px auto;
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid white;
+    border-radius: 25px;
+
+    box-shadow: 0 8px 30px rgba(130, 100, 170, 0.15);
+}
+
+.surprise-message.show {
+    display: block;
+    animation: appear 1s ease;
+}
+
+.surprise-message h2 {
+    color: #a477b5;
+}
+
+/* MOBILE ADJUSTMENTS */
+
+@media (max-width: 650px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    .message-card,
+    .love-letter,
+    .next-section {
+        width: 85%;
+        box-sizing: border-box;
+    }
+
+    .surprise-message {
+        padding: 22px;
+    }
+}
